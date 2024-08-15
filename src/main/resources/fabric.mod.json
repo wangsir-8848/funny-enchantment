@@ -19,6 +19,9 @@
     ],
     "main": [
       "com.funnyenchantment.FunnyEnchantment"
+    ],
+    "fabric-datagen": [
+      "com.funnyenchantment.generator.DataGenerator"
     ]
   },
   "mixins": [
