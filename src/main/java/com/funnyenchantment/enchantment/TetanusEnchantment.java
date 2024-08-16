@@ -35,10 +35,12 @@ public class TetanusEnchantment extends Enchantment {
     @Override
     public void onTargetDamaged(LivingEntity user, Entity target, int level) {
 
+
         //当玩家主手拿的带有破伤风附魔的工具时 目标将会添加一个持续流血的效果,直到死亡
         //有概率打上该效果   50%的概率
+        //但是一次会调用两次这个方法 所以 得修改下
         if (target instanceof LivingEntity target1) {
-            if (user.getRandom().nextInt(2)==1) {
+            if (user.getRandom().nextInt(4)==1) {
                 target1.addStatusEffect(new StatusEffectInstance(EffectRegister.TETANUS, Integer.MAX_VALUE, 1));
             }
         }

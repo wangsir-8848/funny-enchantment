@@ -24,7 +24,7 @@ public class VampirismEnchantment extends Enchantment {
     @Override
     public void onTargetDamaged(LivingEntity user, Entity target, int level) {
         // 20%的几率 吸血
-        if (user.getRandom().nextInt(5) == 1){
+        if (user.getRandom().nextInt(10) == 1){
             user.heal((float) (0.5*level));
         }
         super.onTargetDamaged(user, target, level);
