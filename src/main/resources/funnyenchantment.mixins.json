@@ -4,6 +4,7 @@
   "package": "com.funnyenchantment.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "MobEntityMixin",
     "PlayerEntityMixin"
   ],
   "client": [

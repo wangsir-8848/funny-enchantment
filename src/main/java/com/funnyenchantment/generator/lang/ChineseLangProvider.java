@@ -22,6 +22,9 @@ public class ChineseLangProvider extends FabricLanguageProvider {
     public void generateTranslations(TranslationBuilder tb) {
         tb.add(EnchantmentRegister.KINDNESS, "仁慈的");
         tb.add(EnchantmentRegister.TETANUS, "破伤风");
+        tb.add(EnchantmentRegister.MORE_EXP, "更多经验值");
+        tb.add(EnchantmentRegister.SUPER_JUMP, "超级跳跃");
+
     }
 }
 

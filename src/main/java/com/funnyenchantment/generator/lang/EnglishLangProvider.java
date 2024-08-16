@@ -22,6 +22,8 @@ public class EnglishLangProvider extends FabricLanguageProvider {
     public void generateTranslations(TranslationBuilder tb) {
         tb.add(EnchantmentRegister.KINDNESS, "Kindness");
         tb.add(EnchantmentRegister.TETANUS, "Tetanus");
+        tb.add(EnchantmentRegister.MORE_EXP, "More Exp");
+        tb.add(EnchantmentRegister.SUPER_JUMP, "Super Jump");
 
     }
 }

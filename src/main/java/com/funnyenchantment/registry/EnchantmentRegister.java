@@ -1,6 +1,8 @@
 package com.funnyenchantment.registry;
 
 import com.funnyenchantment.enchantment.KindnessEnchantment;
+import com.funnyenchantment.enchantment.MoreExpEnchantment;
+import com.funnyenchantment.enchantment.SuperJumpEnchantment;
 import com.funnyenchantment.enchantment.TetanusEnchantment;
 import com.funnyenchantment.util.Utils;
 import net.minecraft.enchantment.Enchantment;
@@ -24,9 +26,17 @@ public class EnchantmentRegister {
     public static final TetanusEnchantment TETANUS = new TetanusEnchantment(Enchantment.Rarity.VERY_RARE,
             EquipmentSlot.MAINHAND);
 
+    public static final MoreExpEnchantment MORE_EXP = new MoreExpEnchantment(Enchantment.Rarity.COMMON,
+            EquipmentSlot.MAINHAND);
+
+    public static final SuperJumpEnchantment SUPER_JUMP = new SuperJumpEnchantment(Enchantment.Rarity.COMMON,
+            EquipmentSlot.FEET);
+
     public static void register() {
         register("kindness", KINDNESS);
         register("tetanus", TETANUS);
+        register("more_exp", MORE_EXP);
+        register("super_jump", SUPER_JUMP);
     }
 
     private static void register(String name, Enchantment enchantment) {
