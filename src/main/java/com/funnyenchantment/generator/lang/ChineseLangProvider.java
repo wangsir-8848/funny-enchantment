@@ -21,6 +21,7 @@ public class ChineseLangProvider extends FabricLanguageProvider {
     @Override
     public void generateTranslations(TranslationBuilder tb) {
         tb.add(EnchantmentRegister.KINDNESS, "仁慈的");
+        tb.add(EnchantmentRegister.TETANUS, "破伤风");
     }
 }
 

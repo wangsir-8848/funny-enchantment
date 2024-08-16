@@ -1,6 +1,7 @@
 plugins {
     id 'fabric-loom' version '1.6-SNAPSHOT'
     id 'maven-publish'
+    id "com.modrinth.minotaur" version "2.+"
 }
 
 version = project.mod_version
@@ -89,4 +90,14 @@ publishing {
 }
 fabricApi {
     configureDataGeneration()
+}
+
+modrinth {
+    token = System.getenv('MODRINTH_TOKEN')
+    projectId = 'QR1mXaH0'
+    versionNumber = '1.20.4-1.0'
+    versionName = 'FunnyEnchantment'
+    uploadFile = tasks.named('remapJar').get()
+    gameVersions = ['1.20.4']
+    loaders = ['fabric']
 }

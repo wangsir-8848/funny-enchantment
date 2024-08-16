@@ -1,6 +1,7 @@
 package com.funnyenchantment.registry;
 
 import com.funnyenchantment.enchantment.KindnessEnchantment;
+import com.funnyenchantment.enchantment.TetanusEnchantment;
 import com.funnyenchantment.util.Utils;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
@@ -16,13 +17,18 @@ import net.minecraft.registry.Registry;
  */
 public class EnchantmentRegister {
 
-    public static final KindnessEnchantment KINDNESS = new KindnessEnchantment(Enchantment.Rarity.UNCOMMON,
-            EnchantmentTarget.WEAPON,
+    //附魔概率极低,非常稀有
+    public static final KindnessEnchantment KINDNESS = new KindnessEnchantment(Enchantment.Rarity.VERY_RARE,
+            EquipmentSlot.MAINHAND);
+
+    public static final TetanusEnchantment TETANUS = new TetanusEnchantment(Enchantment.Rarity.VERY_RARE,
             EquipmentSlot.MAINHAND);
 
     public static void register() {
         register("kindness", KINDNESS);
+        register("tetanus", TETANUS);
     }
+
     private static void register(String name, Enchantment enchantment) {
         Registry.register(Registries.ENCHANTMENT, Utils.getIdentifier(name), enchantment);
     }

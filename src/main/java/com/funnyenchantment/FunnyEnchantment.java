@@ -1,6 +1,7 @@
 package com.funnyenchantment;
 
 import com.funnyenchantment.config.ModBaseInfo;
+import com.funnyenchantment.registry.EffectRegister;
 import com.funnyenchantment.registry.EnchantmentRegister;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
@@ -22,5 +23,6 @@ public class FunnyEnchantment implements ModInitializer {
     public void onInitialize() {
 
         EnchantmentRegister.register();
+        EffectRegister.register();
     }
 }

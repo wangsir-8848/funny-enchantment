@@ -21,6 +21,7 @@ public class EnglishLangProvider extends FabricLanguageProvider {
     @Override
     public void generateTranslations(TranslationBuilder tb) {
         tb.add(EnchantmentRegister.KINDNESS, "Kindness");
+        tb.add(EnchantmentRegister.TETANUS, "Tetanus");
 
     }
 }
