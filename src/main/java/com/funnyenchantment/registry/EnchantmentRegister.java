@@ -1,9 +1,6 @@
 package com.funnyenchantment.registry;
 
-import com.funnyenchantment.enchantment.KindnessEnchantment;
-import com.funnyenchantment.enchantment.MoreExpEnchantment;
-import com.funnyenchantment.enchantment.SuperJumpEnchantment;
-import com.funnyenchantment.enchantment.TetanusEnchantment;
+import com.funnyenchantment.enchantment.*;
 import com.funnyenchantment.util.Utils;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
@@ -32,11 +29,15 @@ public class EnchantmentRegister {
     public static final SuperJumpEnchantment SUPER_JUMP = new SuperJumpEnchantment(Enchantment.Rarity.COMMON,
             EquipmentSlot.FEET);
 
+    public static final VampirismEnchantment VAMPIRISM = new VampirismEnchantment(Enchantment.Rarity.COMMON,
+            EquipmentSlot.MAINHAND);
+
     public static void register() {
         register("kindness", KINDNESS);
         register("tetanus", TETANUS);
         register("more_exp", MORE_EXP);
         register("super_jump", SUPER_JUMP);
+        register("vampirism", VAMPIRISM);
     }
 
     private static void register(String name, Enchantment enchantment) {

@@ -24,6 +24,7 @@ public class ChineseLangProvider extends FabricLanguageProvider {
         tb.add(EnchantmentRegister.TETANUS, "破伤风");
         tb.add(EnchantmentRegister.MORE_EXP, "更多经验值");
         tb.add(EnchantmentRegister.SUPER_JUMP, "超级跳跃");
+        tb.add(EnchantmentRegister.VAMPIRISM, "吸血");
 
     }
 }

@@ -24,6 +24,7 @@ public class EnglishLangProvider extends FabricLanguageProvider {
         tb.add(EnchantmentRegister.TETANUS, "Tetanus");
         tb.add(EnchantmentRegister.MORE_EXP, "More Exp");
         tb.add(EnchantmentRegister.SUPER_JUMP, "Super Jump");
+        tb.add(EnchantmentRegister.VAMPIRISM, "Vampirism");
 
     }
 }
