@@ -32,12 +32,16 @@ public class EnchantmentRegister {
     public static final VampirismEnchantment VAMPIRISM = new VampirismEnchantment(Enchantment.Rarity.COMMON,
             EquipmentSlot.MAINHAND);
 
+    public static final LavaWalkerEnchantment LAVA_WALKER = new LavaWalkerEnchantment(Enchantment.Rarity.VERY_RARE,
+            EquipmentSlot.FEET);
+
     public static void register() {
         register("kindness", KINDNESS);
         register("tetanus", TETANUS);
         register("more_exp", MORE_EXP);
         register("super_jump", SUPER_JUMP);
         register("vampirism", VAMPIRISM);
+        register("lava_walker", LAVA_WALKER);
     }
 
     private static void register(String name, Enchantment enchantment) {

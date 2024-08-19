@@ -12,8 +12,10 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.Biome;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -30,14 +32,15 @@ public abstract class PlayerEntityMixin extends LivingEntity {
     protected PlayerEntityMixin(EntityType<? extends LivingEntity> entityType, World world) {
         super(entityType, world);
     }
+
     @Inject(method = "attack", at = @At("HEAD"), cancellable = true)
-    public void attackEntity(Entity target, CallbackInfo ci){
-        if(target instanceof LivingEntity target1){
+    public void attackEntity(Entity target, CallbackInfo ci) {
+        if (target instanceof LivingEntity target1) {
             if (EnchantmentHelper.getLevel(EnchantmentRegister.KINDNESS, this.getMainHandStack()) == 1) {
                 //当玩家主手拿的带有仁慈附魔的工具时 将被攻击者进行更远的击飞效果
                 target.addVelocity(0, 0.5, 0);
                 Vec3d velocity = target.getVelocity();
-                target.setVelocity(velocity.x+10, velocity.y+10, velocity.z+10);
+                target.setVelocity(velocity.x + 10, velocity.y + 10, velocity.z + 10);
                 ci.cancel();
             }
 //            if (EnchantmentHelper.getLevel(EnchantmentRegister.TETANUS, this.getMainHandStack()) == 1) {
@@ -51,11 +54,15 @@ public abstract class PlayerEntityMixin extends LivingEntity {
     }
 
     @Inject(method = "tick", at = @At("HEAD"))
-    public void tick(CallbackInfo ci){
+    public void tick(CallbackInfo ci) {
         ItemStack equippedStack = getEquippedStack(EquipmentSlot.FEET);
         int level;
-        if ((level = EnchantmentHelper.getLevel(EnchantmentRegister.SUPER_JUMP, equippedStack))>0) {
-           this.addStatusEffect(new StatusEffectInstance(StatusEffects.JUMP_BOOST, 1, level));
+        if ((level = EnchantmentHelper.getLevel(EnchantmentRegister.SUPER_JUMP, equippedStack)) > 0) {
+            if (this.getStatusEffect(StatusEffects.JUMP_BOOST) == null) {
+                this.addStatusEffect(new StatusEffectInstance(StatusEffects.JUMP_BOOST, 20*30, level));
+            }else if (this.getStatusEffect(StatusEffects.JUMP_BOOST).getDuration()<20){
+                this.addStatusEffect(new StatusEffectInstance(StatusEffects.JUMP_BOOST, 20*30, level));
+            }
         }
     }
 }

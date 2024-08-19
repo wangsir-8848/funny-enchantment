@@ -64,6 +64,9 @@ java {
     // If you remove this line, sources will not be generated.
     withSourcesJar()
 }
+loom {
+    accessWidenerPath  = file("src/main/resources/funnyenchantment.accesswidener")
+}
 
 jar {
     from("LICENSE") {
@@ -100,4 +103,5 @@ modrinth {
     uploadFile = tasks.named('remapJar').get()
     gameVersions = ['1.20.4']
     loaders = ['fabric']
+    changelog = '超级跳效果更新修改'
 }

@@ -1,5 +1,6 @@
 package com.funnyenchantment.enchantment;
 
+import com.funnyenchantment.registry.EnchantmentRegister;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.Entity;
@@ -19,5 +20,8 @@ public class KindnessEnchantment extends Enchantment {
     }
     //最大附魔等级为1
     //getMaxLevel 原版默认为1 不用修改
-
+    @Override
+    protected boolean canAccept(Enchantment other) {
+        return super.canAccept(other) && other != EnchantmentRegister.TETANUS;
+    }
 }
