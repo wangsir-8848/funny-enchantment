@@ -54,10 +54,14 @@ public abstract class PlayerEntityMixin extends LivingEntity {
         ItemStack equippedStack = getEquippedStack(EquipmentSlot.FEET);
         int superJumpLevel;
         if ((superJumpLevel = EnchantmentHelper.getLevel(EnchantmentRegister.SUPER_JUMP, equippedStack)) > 0) {
+            //超级跳跃 持续30秒 没有粒子效果,显示图标
+            StatusEffectInstance supperJumpEffect = new StatusEffectInstance(StatusEffects.JUMP_BOOST, 20 * 30,
+                    superJumpLevel, false
+                    , false, true);
             if (this.getStatusEffect(StatusEffects.JUMP_BOOST) == null) {
-                this.addStatusEffect(new StatusEffectInstance(StatusEffects.JUMP_BOOST, 20 * 30, superJumpLevel));
+                this.addStatusEffect(supperJumpEffect);
             } else if (this.getStatusEffect(StatusEffects.JUMP_BOOST).getDuration() < 20) {
-                this.addStatusEffect(new StatusEffectInstance(StatusEffects.JUMP_BOOST, 20 * 30, superJumpLevel));
+                this.addStatusEffect(supperJumpEffect);
             }
         }
     }
