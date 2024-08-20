@@ -1,21 +1,17 @@
 package com.funnyenchantment.mixin;
 
-import com.funnyenchantment.registry.EffectRegister;
 import com.funnyenchantment.registry.EnchantmentRegister;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.Biome;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -54,14 +50,14 @@ public abstract class PlayerEntityMixin extends LivingEntity {
     }
 
     @Inject(method = "tick", at = @At("HEAD"))
-    public void tick(CallbackInfo ci) {
+    public void tickHead(CallbackInfo ci) {
         ItemStack equippedStack = getEquippedStack(EquipmentSlot.FEET);
-        int level;
-        if ((level = EnchantmentHelper.getLevel(EnchantmentRegister.SUPER_JUMP, equippedStack)) > 0) {
+        int superJumpLevel;
+        if ((superJumpLevel = EnchantmentHelper.getLevel(EnchantmentRegister.SUPER_JUMP, equippedStack)) > 0) {
             if (this.getStatusEffect(StatusEffects.JUMP_BOOST) == null) {
-                this.addStatusEffect(new StatusEffectInstance(StatusEffects.JUMP_BOOST, 20*30, level));
-            }else if (this.getStatusEffect(StatusEffects.JUMP_BOOST).getDuration()<20){
-                this.addStatusEffect(new StatusEffectInstance(StatusEffects.JUMP_BOOST, 20*30, level));
+                this.addStatusEffect(new StatusEffectInstance(StatusEffects.JUMP_BOOST, 20 * 30, superJumpLevel));
+            } else if (this.getStatusEffect(StatusEffects.JUMP_BOOST).getDuration() < 20) {
+                this.addStatusEffect(new StatusEffectInstance(StatusEffects.JUMP_BOOST, 20 * 30, superJumpLevel));
             }
         }
     }

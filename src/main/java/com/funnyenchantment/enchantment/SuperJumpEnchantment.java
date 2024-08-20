@@ -11,7 +11,7 @@ import net.minecraft.entity.EquipmentSlot;
  * @description TDDD
  */
 public class SuperJumpEnchantment extends Enchantment {
-    public SuperJumpEnchantment(Rarity rarity,  EquipmentSlot... slotTypes) {
+    public SuperJumpEnchantment(Rarity rarity, EquipmentSlot... slotTypes) {
         super(rarity, EnchantmentTarget.ARMOR_FEET, slotTypes);
     }
 

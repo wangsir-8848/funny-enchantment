@@ -16,7 +16,7 @@ public class ModBaseInfo {
 
     public static final ModContainer MOD_CONTAINER = FabricLoader.getInstance().getModContainer(MOD_ID).orElseThrow();
 
-    public static final String MOD_VERSION  = MOD_CONTAINER.getMetadata().getVersion().toString();
+    public static final String MOD_VERSION = MOD_CONTAINER.getMetadata().getVersion().toString();
 
     public static final String MOD_NAME = MOD_CONTAINER.getMetadata().getName();
 

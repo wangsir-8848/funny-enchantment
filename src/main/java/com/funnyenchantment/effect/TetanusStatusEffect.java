@@ -1,10 +1,8 @@
 package com.funnyenchantment.effect;
 
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.InstantStatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * @author wanggq

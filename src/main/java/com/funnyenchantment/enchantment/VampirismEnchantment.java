@@ -16,6 +16,7 @@ public class VampirismEnchantment extends Enchantment {
     public VampirismEnchantment(Rarity rarity, EquipmentSlot... slotTypes) {
         super(rarity, EnchantmentTarget.WEAPON, slotTypes);
     }
+
     @Override
     public int getMaxLevel() {
         return 3;
@@ -24,8 +25,8 @@ public class VampirismEnchantment extends Enchantment {
     @Override
     public void onTargetDamaged(LivingEntity user, Entity target, int level) {
         // 20%的几率 吸血
-        if (user.getRandom().nextInt(10) == 1){
-            user.heal((float) (0.5*level));
+        if (user.getRandom().nextInt(10) == 1) {
+            user.heal((float) (0.5 * level));
         }
         super.onTargetDamaged(user, target, level);
     }

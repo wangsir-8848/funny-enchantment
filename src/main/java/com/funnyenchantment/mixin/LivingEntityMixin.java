@@ -3,8 +3,6 @@ package com.funnyenchantment.mixin;
 import com.funnyenchantment.enchantment.LavaWalkerEnchantment;
 import com.funnyenchantment.registry.EnchantmentRegister;
 import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.enchantment.Enchantments;
-import net.minecraft.enchantment.FrostWalkerEnchantment;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
@@ -25,20 +23,21 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
  * @description TDDD
  */
 @Mixin(LivingEntity.class)
-public  abstract class LivingEntityMixin extends Entity{
+public abstract class LivingEntityMixin extends Entity {
 
 
     public LivingEntityMixin(EntityType<?> type, World world) {
         super(type, world);
     }
 
-    @Shadow public abstract ItemStack getEquippedStack(EquipmentSlot slot);
+    @Shadow
+    public abstract ItemStack getEquippedStack(EquipmentSlot slot);
 
-    @Inject(method = "applyMovementEffects", at = @At("HEAD") )
-        public void applyMovementEffects(BlockPos pos, CallbackInfo ci) {
+    @Inject(method = "applyMovementEffects", at = @At("HEAD"))
+    public void applyMovementEffects(BlockPos pos, CallbackInfo ci) {
         ItemStack feetStack = getEquippedStack(EquipmentSlot.FEET);
-        if (EnchantmentHelper.getLevel(EnchantmentRegister.LAVA_WALKER, feetStack) > 0){
-            LavaWalkerEnchantment.changeBlockLavaToNetherrack((LivingEntity) (Object)this, this.getWorld(), pos);
+        if (EnchantmentHelper.getLevel(EnchantmentRegister.LAVA_WALKER, feetStack) > 0) {
+            LavaWalkerEnchantment.changeBlockLavaToNetherrack((LivingEntity) (Object) this, this.getWorld(), pos);
         }
     }
 }

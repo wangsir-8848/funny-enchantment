@@ -1,5 +1,6 @@
 package com.funnyenchantment.generator.lang;
 
+import com.funnyenchantment.registry.EffectRegister;
 import com.funnyenchantment.registry.EnchantmentRegister;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
@@ -26,6 +27,7 @@ public class ChineseLangProvider extends FabricLanguageProvider {
         tb.add(EnchantmentRegister.SUPER_JUMP, "超级跳跃");
         tb.add(EnchantmentRegister.VAMPIRISM, "吸血");
         tb.add(EnchantmentRegister.LAVA_WALKER, "岩浆行走");
+        tb.add(EffectRegister.TETANUS, "流血");
     }
 }
 

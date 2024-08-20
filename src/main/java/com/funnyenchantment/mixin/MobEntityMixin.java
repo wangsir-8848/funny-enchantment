@@ -2,11 +2,9 @@ package com.funnyenchantment.mixin;
 
 import com.funnyenchantment.registry.EnchantmentRegister;
 import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -32,11 +30,11 @@ public abstract class MobEntityMixin extends LivingEntity {
     public void getXpToDrop(CallbackInfoReturnable<Integer> cir) {
         DamageSource lastDamageSource = getRecentDamageSource();
         assert lastDamageSource != null;
-        LivingEntity attacker = (LivingEntity)lastDamageSource.getAttacker();
+        LivingEntity attacker = (LivingEntity) lastDamageSource.getAttacker();
         assert attacker != null;
         ItemStack mainHandStack = attacker.getMainHandStack();
         int level;
-        if ((level=EnchantmentHelper.getLevel(EnchantmentRegister.MORE_EXP,mainHandStack)) > 0 ){
+        if ((level = EnchantmentHelper.getLevel(EnchantmentRegister.MORE_EXP, mainHandStack)) > 0) {
             cir.setReturnValue(cir.getReturnValue() * level);
         }
     }

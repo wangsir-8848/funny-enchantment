@@ -1,5 +1,6 @@
 package com.funnyenchantment.generator.lang;
 
+import com.funnyenchantment.registry.EffectRegister;
 import com.funnyenchantment.registry.EnchantmentRegister;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
@@ -26,6 +27,7 @@ public class EnglishLangProvider extends FabricLanguageProvider {
         tb.add(EnchantmentRegister.SUPER_JUMP, "Super Jump");
         tb.add(EnchantmentRegister.VAMPIRISM, "Vampirism");
         tb.add(EnchantmentRegister.LAVA_WALKER, "Lava Walker");
+        tb.add(EffectRegister.TETANUS, "Bleed");
 
     }
 }

@@ -3,7 +3,6 @@ package com.funnyenchantment.registry;
 import com.funnyenchantment.enchantment.*;
 import com.funnyenchantment.util.Utils;
 import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
