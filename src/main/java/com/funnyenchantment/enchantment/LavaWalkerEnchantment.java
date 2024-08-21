@@ -31,6 +31,7 @@ public class LavaWalkerEnchantment extends Enchantment {
 //        Fluids.FLOWING_LAVA
 //        Fluids.LAVA
 //        Items.NETHERRACK
+        // 跳跃和从岩浆中游出来没有写。也得写一下
         if (!entity.isOnGround()) {
             return;
         }
