@@ -35,7 +35,7 @@ public class LavaWalkerEnchantment extends Enchantment {
             return;
         }
         //只在下届生成
-        if (world.getDimensionEntry() != DimensionTypes.THE_NETHER) {
+        if (world.getDimensionKey() != DimensionTypes.THE_NETHER) {
             return;
         }
         //只替换当前脚下。如果需要替换周围方块 根据FrostWalkerEnchantment 这个去修改
