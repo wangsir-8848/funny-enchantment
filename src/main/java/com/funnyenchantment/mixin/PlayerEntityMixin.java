@@ -31,7 +31,7 @@ public abstract class PlayerEntityMixin extends LivingEntity {
 
     @Inject(method = "attack", at = @At("HEAD"), cancellable = true)
     public void attackEntity(Entity target, CallbackInfo ci) {
-        if (target instanceof LivingEntity target1) {
+        if (target instanceof LivingEntity) {
             if (EnchantmentHelper.getLevel(EnchantmentRegister.KINDNESS, this.getMainHandStack()) == 1) {
                 //当玩家主手拿的带有仁慈附魔的工具时 将被攻击者进行更远的击飞效果
                 target.addVelocity(0, 0.5, 0);
