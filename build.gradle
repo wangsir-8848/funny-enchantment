@@ -98,10 +98,10 @@ fabricApi {
 modrinth {
     token = System.getenv('MODRINTH_TOKEN')
     projectId = 'QR1mXaH0'
-    versionNumber = '1.20.4-1.2'
+    versionNumber = '1.20.4-1.3'
     versionName = 'FunnyEnchantment'
     uploadFile = tasks.named('remapJar').get()
     gameVersions = ['1.20.4']
     loaders = ['fabric']
-    changelog = '超级跳效果更新修改'
+    changelog = '新增岩浆上行走附魔、调整一些攻击效果概率'
 }
