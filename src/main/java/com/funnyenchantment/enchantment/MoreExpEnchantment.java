@@ -1,8 +1,6 @@
 package com.funnyenchantment.enchantment;
 
 import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnchantmentTarget;
-import net.minecraft.entity.EquipmentSlot;
 
 /**
  * @author wanggq
@@ -11,13 +9,9 @@ import net.minecraft.entity.EquipmentSlot;
  * @description TDDD
  */
 public class MoreExpEnchantment extends Enchantment {
-    public MoreExpEnchantment(Rarity rarity, EquipmentSlot... slotTypes) {
-        super(rarity, EnchantmentTarget.WEAPON, slotTypes);
+    public MoreExpEnchantment(Enchantment.Properties properties) {
+        super(properties);
     }
 
-    @Override
-    public int getMaxLevel() {
-        return 3;
-    }
 
 }

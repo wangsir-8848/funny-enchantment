@@ -16,11 +16,12 @@ public class TetanusStatusEffect extends InstantStatusEffect {
     }
 
     @Override
-    public void applyUpdateEffect(LivingEntity entity, int amplifier) {
+    public boolean applyUpdateEffect(LivingEntity entity, int amplifier) {
         super.applyUpdateEffect(entity, amplifier);
         if (entity.getHealth() > 0.0F) {
             entity.damage(entity.getDamageSources().magic(), 0.5F);
         }
+        return true;
     }
 
 }

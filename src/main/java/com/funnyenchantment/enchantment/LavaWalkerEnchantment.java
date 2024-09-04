@@ -2,9 +2,7 @@ package com.funnyenchantment.enchantment;
 
 import net.minecraft.block.Blocks;
 import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.enchantment.Enchantments;
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.util.math.BlockPos;
@@ -18,8 +16,8 @@ import net.minecraft.world.dimension.DimensionTypes;
  * @description 岩浆上行走
  */
 public class LavaWalkerEnchantment extends Enchantment {
-    public LavaWalkerEnchantment(Rarity rarity, EquipmentSlot... slotTypes) {
-        super(rarity, EnchantmentTarget.ARMOR_FEET, slotTypes);
+    public LavaWalkerEnchantment(Enchantment.Properties properties) {
+        super(properties);
     }
 
     @Override
@@ -36,7 +34,7 @@ public class LavaWalkerEnchantment extends Enchantment {
             return;
         }
         //只在下届生成
-        if (world.getDimensionKey() != DimensionTypes.THE_NETHER) {
+        if (!world.getDimensionEntry().matchesKey(DimensionTypes.THE_NETHER)) {
             return;
         }
         //只替换当前脚下。如果需要替换周围方块 根据FrostWalkerEnchantment 这个去修改

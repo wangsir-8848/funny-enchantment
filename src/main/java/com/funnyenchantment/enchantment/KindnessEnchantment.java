@@ -2,8 +2,6 @@ package com.funnyenchantment.enchantment;
 
 import com.funnyenchantment.registry.EnchantmentRegister;
 import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnchantmentTarget;
-import net.minecraft.entity.EquipmentSlot;
 
 /**
  * @author wanggq
@@ -12,9 +10,9 @@ import net.minecraft.entity.EquipmentSlot;
  * @description 仁慈
  */
 public class KindnessEnchantment extends Enchantment {
-    public KindnessEnchantment(Enchantment.Rarity rarity, EquipmentSlot... slotTypes) {
+    public KindnessEnchantment(Enchantment.Properties properties) {
         //这本附魔书只能给武器使用
-        super(rarity, EnchantmentTarget.WEAPON, slotTypes);
+        super(properties);
     }
 
     //最大附魔等级为1

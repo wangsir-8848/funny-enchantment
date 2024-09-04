@@ -6,6 +6,7 @@ import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.tag.ItemTags;
 
 /**
  * @author wanggq
@@ -16,23 +17,24 @@ import net.minecraft.registry.Registry;
 public class EnchantmentRegister {
 
     //附魔概率极低,非常稀有
-    public static final KindnessEnchantment KINDNESS = new KindnessEnchantment(Enchantment.Rarity.VERY_RARE,
-            EquipmentSlot.MAINHAND);
+    public static final KindnessEnchantment KINDNESS = new KindnessEnchantment(Enchantment.properties(ItemTags.SWORDS
+            , 2, 3, Enchantment.leveledCost(10, 10), Enchantment.leveledCost(10, 10), 4, EquipmentSlot.MAINHAND));
 
-    public static final TetanusEnchantment TETANUS = new TetanusEnchantment(Enchantment.Rarity.VERY_RARE,
-            EquipmentSlot.MAINHAND);
+    public static final TetanusEnchantment TETANUS = new TetanusEnchantment(Enchantment.properties(ItemTags.SWORDS
+            , 2,1, Enchantment.leveledCost(10, 10), Enchantment.leveledCost(10, 10), 4, EquipmentSlot.MAINHAND));
 
-    public static final MoreExpEnchantment MORE_EXP = new MoreExpEnchantment(Enchantment.Rarity.COMMON,
-            EquipmentSlot.MAINHAND);
+    public static final MoreExpEnchantment MORE_EXP = new MoreExpEnchantment(Enchantment.properties(ItemTags.SWORDS
+            , 2,1, Enchantment.leveledCost(10, 10), Enchantment.leveledCost(10, 10), 4, EquipmentSlot.MAINHAND));
 
-    public static final SuperJumpEnchantment SUPER_JUMP = new SuperJumpEnchantment(Enchantment.Rarity.COMMON,
-            EquipmentSlot.FEET);
+    public static final SuperJumpEnchantment SUPER_JUMP = new SuperJumpEnchantment(Enchantment.properties(ItemTags.FOOT_ARMOR
+            , 2,5, Enchantment.leveledCost(10, 10), Enchantment.leveledCost(10, 10), 4, EquipmentSlot.FEET));
 
-    public static final VampirismEnchantment VAMPIRISM = new VampirismEnchantment(Enchantment.Rarity.COMMON,
-            EquipmentSlot.MAINHAND);
+    public static final VampirismEnchantment VAMPIRISM = new VampirismEnchantment(Enchantment.properties(ItemTags.SWORDS
+            , 2,5, Enchantment.leveledCost(10, 10), Enchantment.leveledCost(10, 10), 4, EquipmentSlot.MAINHAND));
 
-    public static final LavaWalkerEnchantment LAVA_WALKER = new LavaWalkerEnchantment(Enchantment.Rarity.VERY_RARE,
-            EquipmentSlot.FEET);
+    public static final LavaWalkerEnchantment LAVA_WALKER =
+            new LavaWalkerEnchantment(Enchantment.properties(ItemTags.FOOT_ARMOR
+            , 2,1, Enchantment.leveledCost(10, 10), Enchantment.leveledCost(10, 10), 4, EquipmentSlot.FEET));
 
     public static void register() {
         register("kindness", KINDNESS);

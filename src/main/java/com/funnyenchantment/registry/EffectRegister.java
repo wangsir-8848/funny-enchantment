@@ -6,6 +6,7 @@ import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.entry.RegistryEntry;
 
 /**
  * @author wanggq
@@ -15,13 +16,15 @@ import net.minecraft.registry.Registry;
  */
 public class EffectRegister {
 
-    public static final TetanusStatusEffect TETANUS = new TetanusStatusEffect(StatusEffectCategory.HARMFUL, 15978425);
+    public static RegistryEntry<StatusEffect> TETANUS;
+
+//    = new TetanusStatusEffect(StatusEffectCategory.HARMFUL, 15978425);
 
     public static void register() {
-        register("tetanus", TETANUS);
+        TETANUS = register("tetanus", new TetanusStatusEffect(StatusEffectCategory.HARMFUL, 15978425));
     }
 
-    private static void register(String name, StatusEffect statusEffect) {
-        Registry.register(Registries.STATUS_EFFECT, Utils.getIdentifier(name), statusEffect);
+    private static RegistryEntry.Reference<StatusEffect> register(String name, StatusEffect statusEffect) {
+        return Registry.registerReference(Registries.STATUS_EFFECT, Utils.getIdentifier(name), statusEffect);
     }
 }

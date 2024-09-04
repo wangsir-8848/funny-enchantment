@@ -1,9 +1,7 @@
 package com.funnyenchantment.enchantment;
 
 import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 
 /**
@@ -13,14 +11,10 @@ import net.minecraft.entity.LivingEntity;
  * @description 吸血书
  */
 public class VampirismEnchantment extends Enchantment {
-    public VampirismEnchantment(Rarity rarity, EquipmentSlot... slotTypes) {
-        super(rarity, EnchantmentTarget.WEAPON, slotTypes);
+    public VampirismEnchantment(Enchantment.Properties properties) {
+        super(properties);
     }
 
-    @Override
-    public int getMaxLevel() {
-        return 5;
-    }
 
     @Override
     public void onTargetDamaged(LivingEntity user, Entity target, int level) {

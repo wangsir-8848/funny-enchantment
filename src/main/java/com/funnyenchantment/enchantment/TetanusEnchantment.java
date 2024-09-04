@@ -3,9 +3,7 @@ package com.funnyenchantment.enchantment;
 import com.funnyenchantment.registry.EffectRegister;
 import com.funnyenchantment.registry.EnchantmentRegister;
 import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 
@@ -16,8 +14,8 @@ import net.minecraft.entity.effect.StatusEffectInstance;
  * @description TDDD
  */
 public class TetanusEnchantment extends Enchantment {
-    public TetanusEnchantment(Rarity rarity, EquipmentSlot... slotTypes) {
-        super(rarity, EnchantmentTarget.WEAPON, slotTypes);
+    public TetanusEnchantment(Enchantment.Properties properties) {
+        super(properties);
     }
     //最大附魔等级为1
     //getMaxLevel 原版默认为1 不用修改

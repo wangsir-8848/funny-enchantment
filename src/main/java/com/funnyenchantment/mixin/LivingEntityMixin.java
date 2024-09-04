@@ -22,7 +22,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
  * @date 2024/8/19
  * @description TDDD
  */
-@Mixin(LivingEntity.class)
+@Mixin({LivingEntity.class})
 public abstract class LivingEntityMixin extends Entity {
 
 
@@ -33,7 +33,8 @@ public abstract class LivingEntityMixin extends Entity {
     @Shadow
     public abstract ItemStack getEquippedStack(EquipmentSlot slot);
 
-    @Inject(method = "applyMovementEffects", at = @At("HEAD"))
+
+    @Inject(method = {"applyMovementEffects"}, at = @At("HEAD"))
     public void applyMovementEffects(BlockPos pos, CallbackInfo ci) {
         ItemStack feetStack = getEquippedStack(EquipmentSlot.FEET);
         if (EnchantmentHelper.getLevel(EnchantmentRegister.LAVA_WALKER, feetStack) > 0) {

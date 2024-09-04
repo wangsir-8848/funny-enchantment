@@ -1,8 +1,6 @@
 package com.funnyenchantment.enchantment;
 
 import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnchantmentTarget;
-import net.minecraft.entity.EquipmentSlot;
 
 /**
  * @author wanggq
@@ -11,13 +9,7 @@ import net.minecraft.entity.EquipmentSlot;
  * @description TDDD
  */
 public class SuperJumpEnchantment extends Enchantment {
-    public SuperJumpEnchantment(Rarity rarity, EquipmentSlot... slotTypes) {
-        super(rarity, EnchantmentTarget.ARMOR_FEET, slotTypes);
+    public SuperJumpEnchantment(Enchantment.Properties properties) {
+        super(properties);
     }
-
-    @Override
-    public int getMaxLevel() {
-        return 5;
-    }
-
 }
