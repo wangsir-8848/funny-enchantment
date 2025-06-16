@@ -8,7 +8,10 @@
     "Cx330"
   ],
   "contact": {
-    "repo": "1"
+    "repo": "1",
+    "email": "wangsir777@yeah.net",
+    "sources": "https://github.com/wangsir-8848/funny-enchantment",
+    "issues": "https://github.com/wangsir-8848/funny-enchantment/issues"
   },
   "license": "All-Rights-Reserved",
   "icon": "assets/funnyenchantment/icon.png",
