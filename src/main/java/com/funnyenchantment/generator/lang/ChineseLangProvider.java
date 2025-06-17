@@ -31,6 +31,7 @@ public class ChineseLangProvider extends FabricLanguageProvider {
         tb.add(EnchantmentRegister.SUPER_JUMP, "超级跳跃");
         tb.add(EnchantmentRegister.VAMPIRISM, "吸血");
         tb.add(EnchantmentRegister.LAVA_WALKER, "岩浆行走");
+        tb.add(EnchantmentRegister.DOUBLE_JUMP, "二段跳");
         tb.add(EffectRegister.TETANUS.value(), "流血");
     }
 }

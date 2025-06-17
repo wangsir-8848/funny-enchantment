@@ -31,7 +31,7 @@ public class EnglishLangProvider extends FabricLanguageProvider {
         tb.add(EnchantmentRegister.SUPER_JUMP, "Super Jump");
         tb.add(EnchantmentRegister.VAMPIRISM, "Vampirism");
         tb.add(EnchantmentRegister.LAVA_WALKER, "Lava Walker");
+        tb.add(EnchantmentRegister.DOUBLE_JUMP, "double jump");
         tb.add(EffectRegister.TETANUS.value(), "Bleed");
-
     }
 }

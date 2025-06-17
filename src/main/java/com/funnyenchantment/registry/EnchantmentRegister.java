@@ -36,6 +36,10 @@ public class EnchantmentRegister {
             new LavaWalkerEnchantment(Enchantment.properties(ItemTags.FOOT_ARMOR
             , 2,1, Enchantment.leveledCost(10, 10), Enchantment.leveledCost(10, 10), 4, EquipmentSlot.FEET));
 
+    public static final DoubleJumpEnchantment DOUBLE_JUMP =
+            new DoubleJumpEnchantment(Enchantment.properties(ItemTags.FOOT_ARMOR
+            ,2,1,Enchantment.leveledCost(10,19),Enchantment.leveledCost(10,10),4, EquipmentSlot.FEET));
+
     public static void register() {
         register("kindness", KINDNESS);
         register("tetanus", TETANUS);
@@ -43,6 +47,7 @@ public class EnchantmentRegister {
         register("super_jump", SUPER_JUMP);
         register("vampirism", VAMPIRISM);
         register("lava_walker", LAVA_WALKER);
+        register("double_jump", DOUBLE_JUMP);
     }
 
     private static void register(String name, Enchantment enchantment) {

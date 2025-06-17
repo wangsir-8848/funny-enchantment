@@ -26,11 +26,11 @@ public class LavaWalkerEnchantment extends Enchantment {
     public boolean canAccept(Enchantment other) {
         return super.canAccept(other) && other != Enchantments.FROST_WALKER;
     }
-
-    @Override
-    public boolean isTreasure() {
-        return true;
-    }
+    //这个是只能通过战利品或者交易获取
+//    @Override
+//    public boolean isTreasure() {
+//        return true;
+//    }
 
     public static void changeBlockLavaToNetherrack(LivingEntity entity, World world, BlockPos blockPos,boolean isJumping) {
 //        Fluids.FLOWING_LAVA
