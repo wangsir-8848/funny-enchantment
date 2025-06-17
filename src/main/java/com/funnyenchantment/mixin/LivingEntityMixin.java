@@ -30,11 +30,9 @@ public abstract class LivingEntityMixin extends Entity {
         super(type, world);
     }
 
-    @Shadow
-    public abstract ItemStack getEquippedStack(EquipmentSlot slot);
+    @Shadow public abstract ItemStack getEquippedStack(EquipmentSlot slot);
 
-    @Shadow
-    protected  boolean jumping;
+    @Shadow protected  boolean jumping;
 
     @Inject(method = {"applyMovementEffects"}, at = @At("HEAD"))
     public void applyMovementEffects(BlockPos pos, CallbackInfo ci) {
