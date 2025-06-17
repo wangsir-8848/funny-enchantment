@@ -1,11 +1,13 @@
 package com.funnyenchantment.enchantment;
 
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.dimension.DimensionTypes;
 
@@ -25,11 +27,15 @@ public class LavaWalkerEnchantment extends Enchantment {
         return super.canAccept(other) && other != Enchantments.FROST_WALKER;
     }
 
-    public static void changeBlockLavaToNetherrack(LivingEntity entity, World world, BlockPos blockPos) {
+    @Override
+    public boolean isTreasure() {
+        return true;
+    }
+
+    public static void changeBlockLavaToNetherrack(LivingEntity entity, World world, BlockPos blockPos,boolean isJumping) {
 //        Fluids.FLOWING_LAVA
 //        Fluids.LAVA
 //        Items.NETHERRACK
-        // 跳跃和从岩浆中游出来没有写。也得写一下
         if (!entity.isOnGround()) {
             return;
         }
@@ -38,10 +44,31 @@ public class LavaWalkerEnchantment extends Enchantment {
             return;
         }
         //只替换当前脚下。如果需要替换周围方块 根据FrostWalkerEnchantment 这个去修改
-//        BlockPos changePos = blockPos.down();
-        BlockPos pos = new BlockPos(blockPos.getX(), blockPos.getY() - 1, blockPos.getZ());
-        if (world.getFluidState(pos).getFluid() == Fluids.FLOWING_LAVA || world.getFluidState(pos).getFluid() == Fluids.LAVA) {
-            world.setBlockState(pos, Blocks.NETHERRACK.getDefaultState());
+        //但是这里解决下路了。是否会和解解跳跃冲突。有待测试
+        if (entity.isInLava() || entity.fallDistance > 0.5F  ) {
+            // 检测玩家下方的多个位置（处理下落过程）
+            for (int y = 0; y < 1; y++) {
+                BlockPos checkPos = entity.getBlockPos().down(y + 1);
+                changeBlock(checkPos,world);
+            }
+        }
+        //解决跳跃
+        if (isJumping && entity.fallDistance > 0f){
+            BlockPos checkPos = entity.getBlockPos().down();
+            changeBlock(checkPos,world);
+        }
+
+        BlockPos changePos = blockPos.down();
+        changeBlock(changePos,world);
+    }
+
+    private static void changeBlock(BlockPos changePos, World world){
+        BlockPos topPos = changePos.up();
+        BlockState blockState = world.getBlockState(topPos);
+        if (blockState.isAir()){
+            if (world.getFluidState(changePos).getFluid() == Fluids.FLOWING_LAVA || world.getFluidState(changePos).getFluid() == Fluids.LAVA) {
+                world.setBlockState(changePos, Blocks.NETHERRACK.getDefaultState());
+            }
         }
     }
 }

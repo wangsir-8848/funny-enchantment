@@ -33,12 +33,14 @@ public abstract class LivingEntityMixin extends Entity {
     @Shadow
     public abstract ItemStack getEquippedStack(EquipmentSlot slot);
 
+    @Shadow
+    protected  boolean jumping;
 
     @Inject(method = {"applyMovementEffects"}, at = @At("HEAD"))
     public void applyMovementEffects(BlockPos pos, CallbackInfo ci) {
         ItemStack feetStack = getEquippedStack(EquipmentSlot.FEET);
         if (EnchantmentHelper.getLevel(EnchantmentRegister.LAVA_WALKER, feetStack) > 0) {
-            LavaWalkerEnchantment.changeBlockLavaToNetherrack((LivingEntity) (Object) this, this.getWorld(), pos);
+            LavaWalkerEnchantment.changeBlockLavaToNetherrack((LivingEntity) (Object) this, this.getWorld(), pos,this.jumping);
         }
     }
 }
