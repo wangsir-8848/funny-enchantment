@@ -98,8 +98,10 @@ fabricApi {
 modrinth {
     token = System.getenv('MODRINTH_TOKEN')
     projectId = 'QR1mXaH0'
-    versionNumber = '1.20.5-1.0'
+    versionNumber = '1.20.5'
     versionName = 'FunnyEnchantment'
+    // default release  beta 测试
+    versionType = 'release'
     uploadFile = tasks.named('remapJar').get()
     gameVersions = ['1.20.5']
     loaders = ['fabric']
