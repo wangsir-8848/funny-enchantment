@@ -1,6 +1,7 @@
 plugins {
-    id 'fabric-loom' version '1.6-SNAPSHOT'
+    id 'fabric-loom' version '1.9-SNAPSHOT'
     id 'maven-publish'
+    id "com.modrinth.minotaur" version "2.+"
 }
 
 version = project.mod_version
@@ -41,7 +42,7 @@ processResources {
     }
 }
 
-def targetJavaVersion = 17
+def targetJavaVersion = 21
 tasks.withType(JavaCompile).configureEach {
     // ensure that the encoding is set to UTF-8, no matter what the system default is
     // this fixes some edge cases with special characters not displaying correctly
@@ -62,6 +63,9 @@ java {
     // if it is present.
     // If you remove this line, sources will not be generated.
     withSourcesJar()
+}
+loom {
+    accessWidenerPath  = file("src/main/resources/funnyenchantment.accesswidener")
 }
 
 jar {
@@ -86,4 +90,20 @@ publishing {
         // The repositories here will be used for publishing your artifact, not for
         // retrieving dependencies.
     }
+}
+fabricApi {
+    configureDataGeneration()
+}
+
+modrinth {
+    token = System.getenv('MODRINTH_TOKEN')
+    projectId = 'QR1mXaH0'
+    versionNumber = '1.20.5'
+    versionName = 'FunnyEnchantment'
+    // default release  beta 测试
+    versionType = 'release'
+    uploadFile = tasks.named('remapJar').get()
+    gameVersions = ['1.20.5']
+    loaders = ['fabric']
+    changelog = '解决附魔书不显示问题'
 }
