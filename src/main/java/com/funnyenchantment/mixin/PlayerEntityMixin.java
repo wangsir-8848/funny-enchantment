@@ -97,7 +97,7 @@ public abstract class PlayerEntityMixin extends LivingEntity {
                 }
                 // 标记已使用二段跳
                 hasDoubleJumped = true;
-                // 减少下落伤害的标记
+                // TODO  减少下落伤害的标记   有点小问题
                 this.fallDistance = 0;
                 this.incrementStat(Stats.JUMP);
                 if (this.isSprinting()) {

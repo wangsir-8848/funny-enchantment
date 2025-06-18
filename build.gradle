@@ -103,5 +103,5 @@ modrinth {
     uploadFile = tasks.named('remapJar').get()
     gameVersions = ['1.20.5']
     loaders = ['fabric']
-    changelog = '版本更新'
+    changelog = '解决附魔书不显示问题'
 }
