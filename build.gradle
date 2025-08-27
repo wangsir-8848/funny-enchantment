@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.9-SNAPSHOT'
+    id 'fabric-loom' version '1.11-SNAPSHOT'
     id 'maven-publish'
     id "com.modrinth.minotaur" version "2.+"
 }
@@ -98,12 +98,12 @@ fabricApi {
 modrinth {
     token = System.getenv('MODRINTH_TOKEN')
     projectId = 'QR1mXaH0'
-    versionNumber = '1.20.5'
+    versionNumber = '1.20.6'
     versionName = 'FunnyEnchantment'
     // default release  beta 测试
-    versionType = 'release'
+    versionType = 'beta'
     uploadFile = tasks.named('remapJar').get()
-    gameVersions = ['1.20.5']
+    gameVersions = ['1.20.6']
     loaders = ['fabric']
-    changelog = '解决附魔书不显示问题'
+    changelog = '初始化'
 }
